@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Imawan Maskhuri | Personal Portfolio</title>
+    <meta name="description" content="Website profil pribadi dan portofolio teknologi Imawan Maskhuri.">
+
+    <style>
+        /* ===== PENGATURAN DASAR ===== */
+        :root {
+            --bg: #080d19;
+            --panel: #101a2d;
+            --blue: #38bdf8;
+            --blue-dark: #0284c7;
+            --white: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #23334c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* ===== NAVIGASI ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 13, 25, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--blue);
+        }
+
+        /* ===== BERANDA ===== */
+        .hero {
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            padding: 75px 0;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    ellipse at 85% 40%,
+                    rgba(2, 132, 199, 0.15),
+                    transparent 45%
+                );
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .label {
+            display: inline-block;
+            color: var(--blue);
+            border: 1px solid #164e63;
+            background: #0c2536;
+            border-radius: 30px;
+            padding: 6px 14px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 550px;
+            margin-bottom: 27px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .btn {
+            display: inline-block;
+            border: 1px solid var(--blue-dark);
+            border-radius: 9px;
+            padding: 11px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: var(--blue-dark);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0369a1;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            color: var(--blue);
+        }
+
+        .btn-outline:hover {
+            background: #10263b;
+        }
+
+        .photo-frame {
+            width: min(300px, 100%);
+            aspect-ratio: 4 / 5;
+            justify-self: center;
+            position: relative;
+            padding: 8px;
+            border: 1px solid #1d6a91;
+            border-radius: 25px;
+            background: linear-gradient(145deg, #15354c, #101a2d);
+            box-shadow: 0 0 55px rgba(56, 189, 248, 0.12);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 19px;
+            display: block;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 22px;
+            left: 20px;
+            right: 20px;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(8, 13, 25, 0.88);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .photo-caption strong {
+            display: block;
+            color: var(--blue);
+            font-size: 13px;
+        }
+
+        .photo-caption small {
+            color: var(--muted);
+        }
+
+        /* ===== BAGIAN UMUM ===== */
+        section.content-section {
+            padding: 75px 0;
+            scroll-margin-top: 70px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: var(--blue);
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 31px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* ===== TENTANG SAYA ===== */
+        .about-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-card strong {
+            color: var(--white);
+        }
+
+        /* ===== KEAHLIAN ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 24px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: 0.25s;
+        }
+
+        .skill-card:hover,
+        .project-card:hover {
+            border-color: var(--blue-dark);
+            transform: translateY(-4px);
+        }
+
+        .skill-icon {
+            font-size: 29px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* ===== PROYEK ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .project-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 24px;
+            transition: 0.25s;
+        }
+
+        .project-number {
+            font-size: 13px;
+            color: var(--blue);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            color: #7dd3fc;
+            background: #102a40;
+            padding: 5px 9px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+        /* ===== KONTAK ===== */
+        .contact-card {
+            text-align: center;
+            max-width: 720px;
+            margin: auto;
+            padding: 35px 25px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin: 12px 0 22px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ===== RESPONSIF UNTUK HP ===== */
+        @media (max-width: 800px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero {
+                padding: 55px 0;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .photo-frame {
+                width: 245px;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-menu {
+                gap: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .navbar {
+                flex-direction: column;
+                justify-content: center;
+                padding: 15px 0;
+                gap: 10px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .about-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <div class="container navbar">
+            <a href="#beranda" class="logo">IM<span>.</span></a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#keahlian">Keahlian</a></li>
+                    <li><a href="#proyek">Proyek</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BERANDA -->
+    <main>
+        <section class="hero" id="beranda">
+            <div class="container hero-content">
+
+                <div class="hero-text">
+                    <span class="label">SELAMAT DATANG DI PORTOFOLIO SAYA</span>
+
+                    <h1>Halo, saya <span>Imawan Maskhuri.</span></h1>
+
+                    <p>
+                        Mahasiswa Teknik Elektro yang tertarik pada
+                        teknologi mikrokontroler, elektronika,
+                        Internet of Things, dan inovasi teknologi.
+                        Saya terus belajar untuk menciptakan proyek
+                        yang bermanfaat.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#proyek" class="btn btn-primary">
+                            Lihat Proyek Saya ↗
+                        </a>
+
+                        <a href="#tentang" class="btn btn-outline">
+                            Tentang Saya
+                        </a>
+                    </div>
+                </div>
+
+                <div class="photo-frame">
+                    <img
+                        src="foto-saya.jpg"
+                        alt="Foto profil Imawan Maskhuri"
+                    >
+
+                    <div class="photo-caption">
+                        <strong>Imawan Maskhuri</strong>
+                        <small>Mahasiswa Teknik Elektro</small>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TENTANG SAYA -->
+        <section class="content-section" id="tentang">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Kenali Saya</span>
+                    <h2>Tentang Saya</h2>
+                    <p>Perjalanan saya dalam mempelajari teknologi.</p>
+                </div>
+
+                <div class="about-card">
+                    <p>
+                        Halo! Saya <strong>Imawan Maskhuri</strong>,
+                        mahasiswa Program Studi Teknik Elektro
+                        di Universitas Islam Lamongan.
+                    </p>
+
+                    <p>
+                        Saya memiliki ketertarikan pada sistem
+                        embedded, Arduino, ESP32, sistem monitoring,
+                        serta pengembangan perangkat Internet of Things.
+                    </p>
+
+                    <p>
+                        Saya senang belajar melalui praktik langsung,
+                        mencoba ide baru, dan mengembangkan proyek
+                        elektronika dari tahap perancangan hingga pengujian.
+                    </p>
+
+                    <p>
+                        Tujuan saya adalah menjadi insinyur yang sukses,
+                        terus mengembangkan kemampuan, dan membanggakan
+                        orang tua.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KEAHLIAN -->
+        <section class="content-section" id="keahlian">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Yang Saya Pelajari</span>
+                    <h2>Keahlian & Minat</h2>
+                    <p>Bidang teknologi yang saya tekuni.</p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h3>Elektronika</h3>
+                        <p>
+                            Dasar elektronika, komponen,
+                            rangkaian, dan pengukuran.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🔧</div>
+                        <h3>Arduino & ESP32</h3>
+                        <p>
+                            Pemrograman mikrokontroler dan
+                            pengembangan perangkat embedded.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">📡</div>
+                        <h3>Internet of Things</h3>
+                        <p>
+                            Konsep komunikasi perangkat,
+                            Wi-Fi, dan monitoring data.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🛰️</div>
+                        <h3>GPS & Monitoring</h3>
+                        <p>
+                            Eksplorasi modul GPS dan
+                            visualisasi informasi perangkat.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">☀️</div>
+                        <h3>Energi Surya</h3>
+                        <p>
+                            Perancangan dan pengembangan
+                            sistem solar tracker.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>
+                            Belajar HTML, CSS, JavaScript,
+                            dan pembuatan website.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYEK -->
+        <section class="content-section" id="proyek">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Karya & Eksperimen</span>
+                    <h2>Proyek Saya</h2>
+                    <p>Beberapa proyek yang saya pelajari dan kembangkan.</p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="project-number">PROYEK 01</div>
+                        <h3>ESP32 Wi-Fi Repeater</h3>
+                        <p>
+                            Eksperimen menggunakan ESP32 sebagai
+                            perangkat perluasan konektivitas Wi-Fi.
+                        </p>
+                        <span class="project-tag">ESP32 · Wi-Fi</span>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-number">PROYEK 02</div>
+                        <h3>Dual Axis Solar Tracker</h3>
+                        <p>
+                            Sistem pelacak posisi cahaya matahari
+                            menggunakan Arduino, sensor LDR, dan servo.
+                        </p>
+                        <span class="project-tag">Arduino · Energi Surya</span>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-number">PROYEK 03</div>
+                        <h3>GPS Monitoring</h3>
+                        <p>
+                            Eksperimen pembacaan koordinat GPS
+                            dan tampilan informasi melalui OLED.
+                        </p>
+                        <span class="project-tag">ESP32 · GPS · OLED</span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="content-section" id="kontak">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Terhubung</span>
+                    <h2>Kontak Saya</h2>
+                    <p>
+                        Punya ide proyek atau ingin berdiskusi
+                        tentang teknologi?
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Mari Bertukar Ide!</h3>
+                    <p>
+                        Bagian ini bisa kamu lengkapi dengan email,
+                        LinkedIn, GitHub, atau Instagram milikmu.
+                    </p>
+
+                    <a
+                        href="mailto:emailkamu@example.com"
+                        class="btn btn-primary"
+                    >
+                        Hubungi Saya ✉
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            © <span id="tahun"></span> Imawan Maskhuri.
+            Dibuat dengan HTML dan CSS.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("tahun").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
